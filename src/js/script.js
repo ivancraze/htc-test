@@ -28,7 +28,8 @@ setInterval(() => {
 //валидация формы
 const pass = document.getElementById("formPass");
 
-pass.addEventListener("input", function (event) {
+pass.addEventListener("input", function (e) {
+  e.preventDefault();
   if (pass.validity.patternMismatch) {
     pass.setCustomValidity("Пароль должен содержать не менее 6 символов, включая заглавные буквы, цифры и спецсимволы");
   } else {

@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <div class="form">
-            <form action="#" id="form" class="form__body">
+            <form action="#" id="form" class="form__body" method="GET">
                 <h1 class="form__title">Авторизация</h1>
                 <div class="form__item">
                     <label class="form__label" for="formName">Email:</label>
@@ -17,7 +17,7 @@
                 </div>
                 <div class="form__item">
                     <label class="form__label" for="formPass">Password:</label>
-                    <input class="form__input" id="formPass" type="password" name="auth_pass" placeholder="Введите пароль" pattern="/(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9!@#$%^&*a-zA-Z]{6,}/g">
+                    <input class="form__input" id="formPass" type="password" name="auth_pass" placeholder="Введите пароль" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$" required>
                 </div>  
                 <button class="form__button" type="submit">Войти</button>
             </form>
