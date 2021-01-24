@@ -11,16 +11,20 @@
         <div class="form">
             <form action="#" id="form" class="form__body">
                 <h1 class="form__title">Авторизация</h1>
-                <label class="form__label" for="formName">Email</label>
-                <input class="form__input" id="formName" type="email" name="auth_email" placeholder="Введите email" required>
-                <label class="form__label" for="formPass">Password</label>
-                <input class="form__input" id="formPass" type="password" name="auth_pass" placeholder="Введите пароль" required>
+                <div class="form__item">
+                    <label class="form__label" for="formName">Email:</label>
+                    <input class="form__input" id="formName" type="email" name="auth_email" placeholder="Введите email" required>  
+                </div>
+                <div class="form__item">
+                    <label class="form__label" for="formPass">Password:</label>
+                    <input class="form__input" id="formPass" type="password" name="auth_pass" placeholder="Введите пароль" pattern="/(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9!@#$%^&*a-zA-Z]{6,}/g">
+                </div>  
                 <button class="form__button" type="submit">Войти</button>
             </form>
         </div>
         <div class="clock">
             <div class="clock__title">Текущее время и дата:</div>
-            <div class="clock__item"></div>
+            <div class="clock__item" id="js-clock"></div>
         </div>
     </div>
 

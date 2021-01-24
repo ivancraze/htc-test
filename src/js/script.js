@@ -20,6 +20,18 @@ function dateTime() {
 }
 
 // вывод даты
-setInterval(function () {
-  document.querySelector('.clock__item').innerHTML = dateTime();
+setInterval(() => {
+  document.getElementById('js-clock').innerHTML = dateTime();
 }, 1000);
+
+
+//валидация формы
+const pass = document.getElementById("formPass");
+
+pass.addEventListener("input", function (event) {
+  if (pass.validity.patternMismatch) {
+    pass.setCustomValidity("Пароль должен содержать не менее 6 символов, включая заглавные буквы, цифры и спецсимволы");
+  } else {
+    pass.setCustomValidity("");
+  }
+});
