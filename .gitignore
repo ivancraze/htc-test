@@ -4,4 +4,4 @@
 /node_modules
 /dist
 .jshintrc
-package-json.lock
+package-lock.json
