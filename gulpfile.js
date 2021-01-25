@@ -4,6 +4,7 @@ const sass = require("gulp-dart-sass");
 const cleanCSS = require("gulp-clean-css");
 const autoprefixer = require("gulp-autoprefixer");
 const rename = require("gulp-rename");
+const babel = require('gulp-babel');
 
 gulp.task("server", function () {
   browserSync({
@@ -26,8 +27,17 @@ gulp.task("styles", function () {
     .pipe(browserSync.stream());
 });
 
+gulp.task('scripts', () =>
+    gulp.src('src/js/script.js')
+        .pipe(babel({
+            presets: ['@babel/env']
+        }))
+        .pipe(rename({ suffix: ".min", prefix: "" }))
+        .pipe(gulp.dest('src/js'))
+);
+
 gulp.task("watch", function () {
   gulp.watch("src/sass/**/*.+(scss|sass)", gulp.parallel("styles"));
 });
 
-gulp.task("default", gulp.parallel("watch", "server", "styles"));
+gulp.task("default", gulp.parallel("watch", "server", "styles", "scripts"));
